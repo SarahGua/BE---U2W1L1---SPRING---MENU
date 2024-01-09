@@ -1,5 +1,6 @@
 package sarahguarneri.U2W1L1.MENU;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -7,6 +8,18 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @PropertySource("application.properties")
 public class BeansConfig {
+
+    @Bean(name = "order")
+    public Order order(@Value("${costoCoperto}") String amount){
+        Order o = new Order();
+        o.setOrderNumb(1);
+        o.setTime("13:00");
+        o.setState(Stato.IN_CORSO);
+        o.setPeople(3);
+        int amountValue = Integer.parseInt(amount);
+        o.setTotalAmountService(amountValue * o.getPeople());
+        return o;
+    }
 
     @Bean
     public Topping cheese(){

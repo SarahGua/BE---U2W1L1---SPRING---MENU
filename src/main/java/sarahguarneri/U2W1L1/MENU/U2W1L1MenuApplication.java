@@ -10,7 +10,7 @@ public class U2W1L1MenuApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(U2W1L1MenuApplication.class, args);
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(U2W1L1MenuApplication.class);
-		System.out.println(ctx.getBean("menu"));
+		System.out.println(ctx.getBean("order"));
 	}
 
 }
